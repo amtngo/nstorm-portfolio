@@ -139,7 +139,7 @@
       document.getElementById('youtubeLink').href = 'https://www.youtube.com/shorts/' + video.id;
       const frame = document.createElement('iframe');
       frame.title = video.title + ' 영상';
-      frame.src = 'https://www.youtube-nocookie.com/embed/' + video.id + '?autoplay=1&rel=0&playsinline=1';
+      frame.src = 'https://www.youtube-nocookie.com/embed/' + video.id + '?autoplay=1&rel=0&playsinline=1&cc_load_policy=0';
       frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
       frame.allowFullscreen = true;
       player.replaceChildren(frame);
