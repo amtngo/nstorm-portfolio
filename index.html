@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d121b">
+  <meta name="description" content="NSTORM 신간 도서 숏폼 영상 제작 포트폴리오. 책 속 흥미로운 이야기를 영상으로 소개합니다.">
+  <title>NSTORM | 신간 도서 영상 포트폴리오</title>
+  <style>
+    :root { color-scheme: dark; --bg:#0d121b; --panel:#171e29; --text:#f4f5f7; --muted:#aab5c5; --accent:#e2bb76; --border:#30394a; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo",system-ui,-apple-system,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; }
+    body.modal-open { overflow:hidden; }
+    a { color:inherit; }
+    .wrap { max-width:1140px; margin:auto; padding:0 22px; }
+    header { border-bottom:1px solid var(--border); }
+    .top { min-height:76px; display:flex; align-items:center; justify-content:space-between; gap:18px; }
+    .logo { font-size:25px; letter-spacing:.16em; font-weight:850; text-decoration:none; }
+    .navlink { font-size:14px; text-decoration:none; color:var(--muted); }
+    .navlink:hover, .navlink:focus-visible { color:var(--text); }
+    .hero { padding:82px 0 66px; }
+    .eyebrow { color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.16em; }
+    h1 { font-size:clamp(30px,5vw,52px); line-height:1.3; letter-spacing:-.045em; margin:15px 0 20px; word-break:keep-all; }
+    .intro { max-width:710px; font-size:clamp(15px,2vw,18px); color:var(--muted); word-break:keep-all; }
+    section { padding-bottom:85px; }
+    .sectionhead { display:flex; justify-content:space-between; align-items:baseline; gap:16px; border-bottom:1px solid var(--border); margin-bottom:26px; }
+    h2 { font-size:22px; margin:0 0 16px; letter-spacing:-.025em; }
+    .count { font-size:13px; color:var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:20px; }
+    .video-card { min-width:0; }
+    .thumb { appearance:none; display:block; width:100%; background:#242b37; border:1px solid var(--border); border-radius:12px; overflow:hidden; padding:0; cursor:pointer; position:relative; aspect-ratio:9 / 16; }
+    .thumb img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .2s; }
+    .thumb:hover img { transform:scale(1.035); }
+    .thumb:focus-visible, .close:focus-visible { outline:3px solid var(--accent); outline-offset:4px; }
+    .play { position:absolute; inset:0; display:grid; place-items:center; background:linear-gradient(0deg,rgba(0,0,0,.24),transparent 55%); }
+    .play span { width:51px; height:51px; display:grid; place-items:center; border-radius:50%; background:rgba(0,0,0,.65); border:1px solid rgba(255,255,255,.6); font-size:22px; padding-left:3px; }
+    .book { font-weight:750; font-size:16px; margin:12px 0 3px; line-height:1.4; word-break:keep-all; }
+    .hint { font-size:12px; color:var(--muted); margin:0; }
+    .contact { padding:28px; border:1px solid var(--border); background:var(--panel); border-radius:14px; }
+    .contact p { margin:4px 0 0; color:var(--muted); }
+    .contact a { color:var(--accent); overflow-wrap:anywhere; }
+    footer { border-top:1px solid var(--border); padding:23px 0 38px; font-size:12px; color:var(--muted); }
+    .modal[hidden] { display:none; }
+    .modal { position:fixed; inset:0; z-index:100; padding:20px; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,.88); }
+    .modalbox { width:min(100%,430px); position:relative; }
+    .modal-title { margin:0 48px 10px 0; font-size:16px; font-weight:700; }
+    .close { position:absolute; right:0; top:-5px; width:40px; height:40px; color:white; font-size:27px; cursor:pointer; border:1px solid #687082; border-radius:50%; background:#242b37; }
+    .player { position:relative; width:100%; aspect-ratio:9/16; background:black; border-radius:8px; overflow:hidden; }
+    .player iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+    .fallback { margin:10px 0 0; text-align:center; color:var(--muted); font-size:12px; }
+    .fallback a { color:var(--accent); }
+    @media(max-width:940px){ .grid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+    @media(max-width:600px){ .hero { padding:52px 0 46px; } .grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:17px 12px; } .book { font-size:14px; } .wrap { padding:0 16px; } section { padding-bottom:62px; } .contact { padding:20px; } }
+    @media(prefers-reduced-motion:reduce){ * { scroll-behavior:auto !important; transition:none !important; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap top"><a class="logo" href="#top" aria-label="NSTORM 홈">NSTORM</a><a class="navlink" href="#contact">출판사 협업 문의 ↗</a></div>
+  </header>
+  <main id="top" class="wrap">
+    <div class="hero">
+      <div class="eyebrow">NEW BOOK SHORT-FORM PORTFOLIO</div>
+      <h1>책 속 이야기를<br>영상으로 만듭니다.</h1>
+      <p class="intro">신간 도서의 흥미로운 사건과 이야기를 짧은 영상으로 소개합니다. 썸네일을 누르면 이 페이지에서 바로 시청할 수 있습니다.</p>
+    </div>
+    <section aria-labelledby="videos-title">
+      <div class="sectionhead"><h2 id="videos-title">신간 도서 소개 영상</h2><span class="count">5 VIDEOS</span></div>
+      <div class="grid" id="videoGrid"></div>
+    </section>
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="contact">
+        <h2 id="contact-title">출판사 협업 문의</h2>
+        <p>신간 도서 숏폼 영상 제작 및 협업 문의를 받고 있습니다.</p>
+        <!-- 아래에 공개할 이메일 주소가 정해지면 이 줄을 교체하세요. -->
+        <p>문의 이메일: <strong>[이메일 주소를 입력해 주세요]</strong></p>
+      </div>
+    </section>
+  </main>
+  <footer><div class="wrap">© NSTORM · 신간 도서 영상 포트폴리오</div></footer>
+
+  <div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modalbox">
+      <p class="modal-title" id="modalTitle"></p>
+      <button type="button" class="close" id="closeModal" aria-label="영상 닫기">×</button>
+      <div class="player" id="player"></div>
+      <p class="fallback">재생이 제한된 경우 <a id="youtubeLink" target="_blank" rel="noopener noreferrer" href="#">유튜브에서 보기</a></p>
+    </div>
+  </div>
+
+  <script>
+    // 새 영상을 추가할 때 이 목록에 번호, 제목, YouTube 영상 ID를 추가하세요.
+    const videos = [
+      {number:'001', title:'감정의 기원', id:'ErIUWQkG6vI'},
+      {number:'002', title:'주인 노예 남편 아내', id:'vtheMwO-FFQ'},
+      {number:'003', title:'원시인 수면법', id:'fSNaofWQJv4'},
+      {number:'004', title:'705', id:'F3IcAesBmCM'},
+      {number:'005', title:'잘되는 사람의 뇌과학', id:'EkbVze4sCsc'}
+    ];
+    const grid = document.getElementById('videoGrid');
+    const modal = document.getElementById('videoModal');
+    const player = document.getElementById('player');
+    const closeBtn = document.getElementById('closeModal');
+    let previouslyFocused = null;
+
+    videos.forEach(video => {
+      const card = document.createElement('article');
+      card.className = 'video-card';
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'thumb';
+      button.setAttribute('aria-label', video.title + ' 영상 재생');
+      const img = document.createElement('img');
+      img.src = 'images/' + video.number + '.jpg';
+      img.alt = video.title + ' 썸네일';
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      img.onerror = () => { img.onerror = null; img.removeAttribute('src'); img.alt = '썸네일 준비 중'; img.style.display='none'; button.style.background='#26303f'; };
+      const overlay = document.createElement('span');
+      overlay.className = 'play';
+      overlay.setAttribute('aria-hidden','true');
+      overlay.innerHTML = '<span>▶</span>';
+      button.append(img, overlay);
+      button.addEventListener('click', () => openVideo(video));
+      const title = document.createElement('h3');
+      title.className='book';
+      title.textContent=video.title;
+      const hint = document.createElement('p');
+      hint.className='hint';
+      hint.textContent='눌러서 영상 보기';
+      card.append(button,title,hint);
+      grid.append(card);
+    });
+
+    function openVideo(video) {
+      previouslyFocused = document.activeElement;
+      document.getElementById('modalTitle').textContent = video.title;
+      document.getElementById('youtubeLink').href = 'https://www.youtube.com/shorts/' + video.id;
+      const frame = document.createElement('iframe');
+      frame.title = video.title + ' 영상';
+      frame.src = 'https://www.youtube-nocookie.com/embed/' + video.id + '?autoplay=1&rel=0&playsinline=1';
+      frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      frame.allowFullscreen = true;
+      player.replaceChildren(frame);
+      modal.hidden = false;
+      document.body.classList.add('modal-open');
+      closeBtn.focus();
+    }
+    function closeVideo() {
+      modal.hidden = true;
+      player.replaceChildren(); // 닫을 때 재생 중지
+      document.body.classList.remove('modal-open');
+      if(previouslyFocused && typeof previouslyFocused.focus==='function') previouslyFocused.focus();
+    }
+    closeBtn.addEventListener('click',closeVideo);
+    modal.addEventListener('click',event => { if(event.target===modal) closeVideo(); });
+    document.addEventListener('keydown', event => {
+      if(modal.hidden) return;
+      if(event.key==='Escape') closeVideo();
+      if(event.key==='Tab') { event.preventDefault(); closeBtn.focus(); }
+    });
+  </script>
+</body>
+</html>
